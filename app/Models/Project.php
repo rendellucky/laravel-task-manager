@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Attributes\Fillable;
+use Illuminate\Database\Eloquent\Model;
+
+#[Fillable(['name'])]
+class Project extends Model
+{
+    public function tasks()
+    {
+        return $this->hasMany(Task::class)->orderBy('priority', 'asc');
+    }
+}
